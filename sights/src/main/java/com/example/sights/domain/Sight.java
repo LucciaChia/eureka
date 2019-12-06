@@ -35,6 +35,6 @@ public class Sight implements Serializable {
     @Transient
     int port;
 
-    @ManyToMany(mappedBy = "sightList")
-    private Set<Guide> guideList = new HashSet<>();
+    @ManyToMany(mappedBy = "sights")
+    private Set<Guide> guides = new HashSet<>();
 }

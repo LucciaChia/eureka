@@ -39,8 +39,9 @@ public class Guide implements Serializable {
     @Column
     private String country;
 
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "guide_sights", joinColumns = @JoinColumn(name = "guide_country"), inverseJoinColumns = @JoinColumn(name = "sight_country_name"))
-    private Set<Sight> sightList = new HashSet<>();
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinTable(name = "guide_sights", joinColumns = @JoinColumn(name = "guide_id"),
+            inverseJoinColumns = @JoinColumn(name = "sight_id"))
+    private Set<Sight> sights = new HashSet<>();
 
 }
